@@ -5,6 +5,12 @@
  */
 class Mini_Cart {
 
+    cart = null;
+    CoursesList = null;
+    containerCart = null;
+    clearCartBtn = null;
+    articlesCart = [];
+
     constructor() {
 
         // Singleton Pattern
@@ -23,7 +29,6 @@ class Mini_Cart {
         this.CoursesList = document.querySelector('#lista-cursos');
         this.containerCart = document.querySelector('#lista-carrito tbody');
         this.clearCartBtn = document.querySelector('#vaciar-carrito');
-        this.articlesCart = [];
     
         // Listeners
         this.loadEventListeners();
