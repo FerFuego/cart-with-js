@@ -31,8 +31,6 @@ class Mini_Cart {
         this.clearCartBtn = document.querySelector('#vaciar-carrito');
         this.articlesCart = JSON.parse(localStorage.getItem('userCart')) || [];
 
-        console.log(this.articlesCart);
-    
         // Listeners
         this.loadEventListeners();
     }
