@@ -29,6 +29,9 @@ class Mini_Cart {
         this.CoursesList = document.querySelector('#lista-cursos');
         this.containerCart = document.querySelector('#lista-carrito tbody');
         this.clearCartBtn = document.querySelector('#vaciar-carrito');
+        this.articlesCart = JSON.parse(localStorage.getItem('userCart')) || [];
+
+        console.log(this.articlesCart);
     
         // Listeners
         this.loadEventListeners();
@@ -41,6 +44,8 @@ class Mini_Cart {
         this.cart.addEventListener('click', this.deleteCourse.bind(this) );
         // Clear cart
         this.clearCartBtn.addEventListener('click', this.clearCart.bind(this) );
+        // Cart HTML
+        this.cartHTML();
     }
 
     addCourse(e) {
@@ -116,6 +121,14 @@ class Mini_Cart {
             // Append row to table
             this.containerCart.appendChild(row);
         });
+
+        // Synchronize to Local Storage
+        this.SyncLocalStorage();
+    }
+
+    SyncLocalStorage() {
+        let articlesCart = JSON.stringify(this.articlesCart);
+        localStorage.setItem('userCart', articlesCart);
     }
 
     clearHtml() {
