@@ -19,9 +19,6 @@ class Mini_Cart {
         }
 
         Mini_Cart.instance = this;
-
-        // Properties
-        this.init();
     }
     
     init() {
@@ -152,4 +149,7 @@ class Mini_Cart {
 }
 
 // Load Class
-document.addEventListener('DOMContentLoaded', () => new Mini_Cart() );
+document.addEventListener('DOMContentLoaded', () => {
+    const miniCart = new Mini_Cart()
+    miniCart.init();
+});
